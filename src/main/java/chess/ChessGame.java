@@ -11,7 +11,7 @@ public class ChessGame {
     }
 
     public void initialize() {
-        board.initialize();
+        board.initialize(new ChessInitializer());
     }
 
     public void move(String source, String target) {

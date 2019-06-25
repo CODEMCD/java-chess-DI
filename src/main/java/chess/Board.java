@@ -14,22 +14,9 @@ import pieces.Position;
 
 public class Board {
     private List<Rank> ranks = new ArrayList<>();
-    
-    void initialize() {
-        ranks.add(Rank.initializeWhitePieces(0));
-        ranks.add(Rank.initializeWhitePawns(1));
-        ranks.add(Rank.initializeBlankLine(2));
-        ranks.add(Rank.initializeBlankLine(3));
-        ranks.add(Rank.initializeBlankLine(4));
-        ranks.add(Rank.initializeBlankLine(5));
-        ranks.add(Rank.initializeBlackPawns(6));
-        ranks.add(Rank.initializeBlackPieces(7));
-    }
-    
-    void initializeEmpty() {
-        for (int i = 0; i < 8; i++) {
-            ranks.add(Rank.initializeBlankLine(i));
-        }
+
+    void initialize(BoardInitializer boardInitializer) {
+        ranks = boardInitializer.initialize();
     }
     
     int countPieceByColorAndType(Color color, Type type) {
